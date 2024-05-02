@@ -3,7 +3,7 @@
 import Header from "../components/Header/Header";
 import MyName from "../components/Home/MyName/MyName";
 import { useContext, useEffect, useState, useRef } from "react";
-import SocialMediaArround from "../components/Home/SocialMediaArround/SocialMediaArround";
+import SocialMediaLinks from "../components/Home/SocialMediaLinks/SocialMediaLinks";
 import AboutMe from "../components/Home/AboutMe/AboutMe";
 import GetInTouch from "../components/Home/GetInTouch/GetInTouch";
 import Footer from "../components/Footer/Footer";
@@ -23,9 +23,9 @@ export default function Home() {
         <div className="relative snap-mandatory min-h-screen bg-AAprimary w-full ">
           <Header show={true} />
           <MyName />
-          {/* <SocialMediaArround /> */}
-          {/* <AboutMe />
-          <GetInTouch /> */}
+          <SocialMediaLinks />
+          <AboutMe />
+          <GetInTouch />
           <Footer githubUrl={"https://github.com/hktitof/my-website"} hideSocialsInDesktop={true} />
         </div>
       }

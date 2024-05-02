@@ -37,7 +37,7 @@ export default function MyName(props) {
         }}
         className="text-gray-400 font-bold text-2xl lg:text-6xl sm:text-4xl md:text-5xl mt-4"
       >
-        I am a MBA student at <span className="text-Syracuse">Syracuse</span> University
+        I&apos;m an MBA student at <span className="text-Syracuse">Syracuse</span> University
       </motion.h2>
 
       <motion.h3
@@ -61,11 +61,16 @@ export default function MyName(props) {
           opacity: { delay: 3.2, duration: 0.2 },
           y: { delay: 3.2, duration: 0.2 },
         }}
-        className="mt-12"
+        className="flex flex-row space-x-10 mt-12"
       >
         <a href={"/resume.pdf"} target={"_blank"} rel="noreferrer">
-          <button className="bg-AAprimary text-AAsecondary border rounded px-4 sm:px-8 py-3 sm:py-4 border-AAsecondary">
+          <button className="bg-AAprimary text-AAsecondary font-mono border rounded px-4 sm:px-8 py-3 sm:py-4 border-AAsecondary">
             Check out my resume!
+          </button>
+        </a>
+        <a href={"https://www.linkedin.com/in/chris-vinciguerra/"} target={"_blank"} rel="noreferrer">
+          <button className="bg-AAprimary text-AAsecondary font-mono border rounded px-4 sm:px-8 py-3 sm:py-4 border-AAsecondary">
+            Add me on LinkedIn!
           </button>
         </a>
       </motion.div>
