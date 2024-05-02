@@ -68,11 +68,11 @@ jobs:
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Check output
-        run: dir
+        run: ls -a
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: out
+          path: .next
 
   # Deployment job
   deploy:
