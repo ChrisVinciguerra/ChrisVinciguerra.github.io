@@ -23,56 +23,58 @@ const IconClickableWithAnimation = props => {
 export default function SocialMediaLinks(props: {}) {
   return (
     <>
-      <motion.div
-        initial={{ y: "100%" }}
-        animate={{ y: "0%" }}
-        transition={{ y: { delay: 4, duration: .8 } }}
-        className="z-10 fixed bottom-0 left-0 h-screen lg:flex flex-row px-12 items-center justify-between"
-      >
-        <div className="flex flex-col space-y-8 justify-end items-center h-full">
-          <div className="flex flex-col justify-center items-center space-y-5">
-            {/* Linkedin icon */}
-            <IconClickableWithAnimation Icon={LinkedinIcon} href={"https://www.linkedin.com/in/chris-vinciguerra/"} />
-            {/* Github Icon */}
-            <IconClickableWithAnimation Icon={GithubIcon} href={"https://github.com/ChrisVinciguerra"} />
-            {/* Instagram Icon */}
-            {/* <IconClickableWithAnimation Icon={InstagramIcon} href={"https://www.instagram.com/xredme/"} /> */}
-            {/* Youtube Icon */}
-            {/* <IconClickableWithAnimation Icon={YoutubeIcon} href={"https://www.youtube.com/@abdellatif_anaflous"} /> */}
+      <div className="hidden lg:block">
+        <motion.div
+          initial={{ y: "100%" }}
+          animate={{ y: "0%" }}
+          transition={{ y: { delay: 4, duration: .8 } }}
+          className="fixed bottom-0 left-0 h-screen lg:flex flex-row px-12 items-center justify-between"
+        >
+          <div className="flex flex-col space-y-8 justify-end items-center h-full">
+            <div className="flex flex-col justify-center items-center space-y-5">
+              {/* Linkedin icon */}
+              <IconClickableWithAnimation Icon={LinkedinIcon} href={"https://www.linkedin.com/in/chris-vinciguerra/"} />
+              {/* Github Icon */}
+              <IconClickableWithAnimation Icon={GithubIcon} href={"https://github.com/ChrisVinciguerra"} />
+              {/* Instagram Icon */}
+              {/* <IconClickableWithAnimation Icon={InstagramIcon} href={"https://www.instagram.com/xredme/"} /> */}
+              {/* Youtube Icon */}
+              {/* <IconClickableWithAnimation Icon={YoutubeIcon} href={"https://www.youtube.com/@abdellatif_anaflous"} /> */}
+            </div>
+            <div className="h-24 w-0.5 bg-gray-400"></div>
           </div>
-          <div className="h-24 w-0.5 bg-gray-400"></div>
-        </div>
-      </motion.div>
+        </motion.div>
 
-      {/* // ? Email Address bar */}
-      <motion.div
-        initial={{ y: "100%" }}
-        animate={{ y: "0%" }}
-        transition={{ y: { delay: 4, duration: .8 } }}
-        className="z-10 fixed bottom-0 right-0 h-screen lg:flex flex-row px-12 items-center justify-between"
-      >
-        <div className="flex flex-col space-y-8 justify-end items-center h-full">
-          <div className="flex flex-col justify-center items-center space-y-5">
-            {/* Open Email on click */}
-            <motion.div
-              initial={{ rotate: 90 }}
-              whileHover={{
-                y: -3,
-                transition: { y: { duration: 0.1 }, rotate: { duration: 0 } },
-              }}
-              className=""
-            >
-              <a href="mailto:chris@chrisv.us" target={"_blank"} rel="noreferrer">
-                <span className=" font-Header tracking-wider text-gray-400 hover:text-AAsecondary hover:cursor-pointer">
-                  chris<span className="text-AAsecondary">@</span>chrisv<span className="text-AAsecondary">.</span>us
-                </span>
-              </a>
-            </motion.div>
+        {/* // ? Email Address bar */}
+        <motion.div
+          initial={{ y: "100%" }}
+          animate={{ y: "0%" }}
+          transition={{ y: { delay: 4, duration: .8 } }}
+          className="fixed bottom-0 right-0 h-screen lg:flex flex-row px-12 items-center justify-between"
+        >
+          <div className="flex flex-col space-y-8 justify-end items-center h-full">
+            <div className="flex flex-col justify-center items-center space-y-5">
+              {/* Open Email on click */}
+              <motion.div
+                initial={{ rotate: 90 }}
+                whileHover={{
+                  y: -3,
+                  transition: { y: { duration: 0.1 }, rotate: { duration: 0 } },
+                }}
+                className=""
+              >
+                <a href="mailto:chris@chrisv.us" target={"_blank"} rel="noreferrer">
+                  <span className=" font-Header tracking-wider text-gray-400 hover:text-AAsecondary hover:cursor-pointer">
+                    chris<span className="text-AAsecondary">@</span>chrisv<span className="text-AAsecondary">.</span>us
+                  </span>
+                </a>
+              </motion.div>
+            </div>
+            <div></div>
+            <div className="h-24 w-0.5 bg-gray-400"></div>
           </div>
-          <div></div>
-          <div className="h-24 w-0.5 bg-gray-400"></div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </>
   );
 }
