@@ -20,10 +20,10 @@ export default function Home() {
   return (
     <>
       {
-        <div className="relative snap-mandatory min-h-screen bg-AAprimary w-full ">
+        <div className="relative snap-y min-h-full bg-AAprimary w-full">
           <Header show={true} />
           <MyName />
-          <SocialMediaLinks />
+          {/* <SocialMediaLinks /> */}
           <AboutMe />
           <GetInTouch />
           <Footer githubUrl={"https://github.com/hktitof/my-website"} hideSocialsInDesktop={true} />

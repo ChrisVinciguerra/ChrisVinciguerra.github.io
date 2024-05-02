@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-scroll"
 
-export default function DesktopMenu(props) {
+export default function Menu(props) {
   return (
     <div className="font-mono text-xs md:flex hidden flex-row items-center space-x-8 ">
       <motion.div

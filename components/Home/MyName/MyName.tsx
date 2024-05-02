@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 export default function MyName(props) {
   return (
     <div
-      className="h-screen flex flex-col justify-center
-      px-8 2xl:px-72 xl:px-56 lg:px-32  md:px-28 sm:px-8 py-32 sm:py-52  "
+      className="h-screen flex flex-col 
+      px-8 2xl:px-72 xl:px-56 lg:px-32 md:px-28 sm:px-16 py-24 xl:py-44 lg:py-40 md:py-32 sm:py-24"
     >
       <motion.span
         initial={{ y: 10, opacity: 0 }}
@@ -24,7 +24,7 @@ export default function MyName(props) {
           opacity: { delay: 1.6, duration: 0.2 },
           y: { delay: 1.6, duration: 0.2 },
         }}
-        className="text-gray-300 font-bold text-3xl lg:text-7xl sm:text-5xl md:text-6xl mt-4"
+        className="text-gray-300 font-body font-bold text-3xl lg:text-7xl sm:text-5xl md:text-6xl mt-4"
       >
         Chris Vinciguerra.
       </motion.h1>
