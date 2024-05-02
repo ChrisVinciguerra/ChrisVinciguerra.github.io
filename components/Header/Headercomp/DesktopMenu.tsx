@@ -1,10 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-scroll"
 
 export default function DesktopMenu(props) {
   return (
     <div className="font-mono text-xs md:flex hidden flex-row items-center space-x-8 ">
-      {/* <motion.div
+      <motion.div
         initial={{
           y: -40,
           opacity: 0,
@@ -21,9 +22,9 @@ export default function DesktopMenu(props) {
         className=" text-AAsecondary"
 
       >
-        <ReactScrollLink to="aboutSection" spy={true} smooth={true} offset={-100} duration={200}>
+        <Link to="aboutSection" spy={true} smooth={true} offset={-100} duration={200}>
           &gt; <span className="text-white hover:cursor-pointer hover:text-AAsecondary duration-300">About</span>
-        </ReactScrollLink>
+        </Link>
       </motion.div>
       <motion.span
         initial={{
@@ -41,10 +42,10 @@ export default function DesktopMenu(props) {
         }}
         className="text-AAsecondary"
       >
-        <ReactScrollLink to="GetInTouchSection" spy={true} smooth={true} offset={-100} duration={200}>
+        <Link to="GetInTouchSection" spy={true} smooth={true} offset={-100} duration={200}>
           &gt; <span className="text-white  hover:cursor-pointer hover:text-AAsecondary duration-300">Contact</span>
-        </ReactScrollLink>
-      </motion.span> */}
+        </Link>
+      </motion.span>
       <a href={"/resume.pdf"} target={"_blank"} rel="noreferrer">
         <motion.button
           initial={{
