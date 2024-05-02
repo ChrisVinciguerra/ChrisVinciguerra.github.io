@@ -68,7 +68,7 @@ jobs:
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Add nojekyll
-        run:  touch ./next/.nojekyll
+        run:  touch .next/.nojekyll
       - name: Check output
         run: ls -a .next
       
