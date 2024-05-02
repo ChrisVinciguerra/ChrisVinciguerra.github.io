@@ -1,3 +1,5 @@
+"use client"; // This is a client component
+
 import Header from "../components/Header/Header";
 import MyName from "../components/Home/MyName/MyName";
 import { useContext, useEffect, useState, useRef } from "react";
@@ -6,7 +8,7 @@ import AboutMe from "../components/Home/AboutMe/AboutMe";
 import GetInTouch from "../components/Home/GetInTouch/GetInTouch";
 import Footer from "../components/Footer/Footer";
 import Aos from "aos";
-import "aos/dist/aos.css";
+
 export default function Home() {
 
   useEffect(() => {
@@ -19,7 +21,7 @@ export default function Home() {
     <>
       {
         <div className="relative snap-mandatory min-h-screen bg-AAprimary w-full ">
-          <Header />
+          <Header show={true} />
           <MyName />
           {/* <SocialMediaArround /> */}
           {/* <AboutMe />
