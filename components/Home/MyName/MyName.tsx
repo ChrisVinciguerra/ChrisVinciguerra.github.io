@@ -64,12 +64,12 @@ export default function MyName(props) {
         className="flex flex-row space-x-10 mt-12"
       >
         <a href={"/resume.pdf"} target={"_blank"} rel="noreferrer">
-          <button className="bg-AAprimary text-AAsecondary font-mono border rounded px-4 sm:px-8 py-3 sm:py-4 border-AAsecondary">
+          <button className="bg-AAprimary text-AAsecondary font-mono border rounded px-4 sm:px-8 py-3 sm:py-4 border-AAsecondary hover:bg-ButtonHover hover:text-black">
             Check out my resume!
           </button>
         </a>
         <a href={"https://www.linkedin.com/in/chris-vinciguerra/"} target={"_blank"} rel="noreferrer">
-          <button className="bg-AAprimary text-AAsecondary font-mono border rounded px-4 sm:px-8 py-3 sm:py-4 border-AAsecondary">
+          <button className="bg-AAprimary text-AAsecondary font-mono border rounded px-4 sm:px-8 py-3 sm:py-4 border-AAsecondary hover:bg-ButtonHover hover:text-black">
             Add me on LinkedIn!
           </button>
         </a>

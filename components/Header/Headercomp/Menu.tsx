@@ -2,9 +2,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-scroll"
 
-export default function Menu(props) {
+export default function Menu({ isOpen }) {
   return (
-    <div className="font-mono text-xs md:flex hidden flex-row items-center space-x-8 ">
+    <div className={`${isOpen ? 
+      `absolute top-full right-3 bg-AApopup p-5 rounded-lg shadow-lg flex flex-col items-left space-y-4` :
+      `hidden md:flex md:items-center md:space-x-8`}`}>
       <motion.div
         initial={{
           y: -40,
@@ -62,7 +64,7 @@ export default function Menu(props) {
             delay: 1.0,
           }}
           // onClick={()=>{router.push("/resume.pdf")}}
-          className="text-AAsecondary border border-spacing-2 py-2 px-3 rounded-sm border-AAsecondary hover:bg-ResumeButtonHover"
+          className="text-AAsecondary border border-spacing-2 py-2 px-3 rounded-sm border-AAsecondary duration-300hover:cursor-pointer hover:bg-AAsecondary hover:text-white"
         >
           Resume
         </motion.button>
