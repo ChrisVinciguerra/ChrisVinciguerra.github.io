@@ -15,7 +15,8 @@ module.exports = {
       colors: {
         AAprimary: "#19191b",
         AAsecondary: "#0E8AD2",
-        AApopup: "#303033",
+        AApopup: "#222224",
+        AAteriary: "#202022",
         Syracuse: "#f76900",
         ButtonHover: "#139ae8",
       },

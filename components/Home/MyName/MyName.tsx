@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 export default function MyName(props) {
   return (
     <div
-      className={`flex flex-col
+      className={`flex flex-col 
       px-8 pt-24 sm:px-16 sm:pt-24 md:px-28 md:pt-32 lg:px-32 lg:pt-40 xl:px-56 2xl:px-72`}
     >
       <motion.span
@@ -35,7 +35,7 @@ export default function MyName(props) {
           opacity: { delay: 2.3, duration: 0.2 },
           y: { delay: 2.3, duration: 0.2 },
         }}
-        className="mt-6 font-body text-4xl font-bold text-gray-400 sm:text-4xl md:text-5xl lg:text-6xl"
+        className="mt-6 font-body text-3xl font-bold text-gray-400 sm:text-4xl md:text-5xl lg:text-6xl"
       >
         I&apos;m an MBA student at{" "}
         <span className="text-Syracuse">Syracuse</span> University
@@ -48,7 +48,7 @@ export default function MyName(props) {
           opacity: { delay: 2.9, duration: 0.2 },
           y: { delay: 2.9, duration: 0.2 },
         }}
-        className="text-md mt-10 font-body tracking-wider text-gray-400 md:text-lg"
+        className="mt-10 font-body text-sm tracking-wider text-gray-400 md:text-lg"
       >
         I&apos;m currently preparing for a summer internship in the{" "}
         <span className="text-AAsecondary">Computer Systems Validation</span>{" "}

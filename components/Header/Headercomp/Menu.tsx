@@ -8,9 +8,9 @@ export default function Menu({ isOpen, setIsOpen }) {
       className={`${
         isOpen
           ? // Mobile menu styles
-            `items-left absolute right-3 top-full mt-4 flex flex-col space-y-4 rounded-lg bg-AApopup p-5 shadow-md`
+            `bg-AAteriary absolute left-0 top-full flex h-96 w-full flex-col items-center justify-between py-8 text-4xl shadow-md`
           : // Nav bar styles
-            `hidden md:flex md:items-center md:space-x-8`
+            `hidden md:flex md:items-center md:space-x-4`
       }`}
     >
       <motion.div
@@ -27,7 +27,7 @@ export default function Menu({ isOpen, setIsOpen }) {
           duration: 1.2,
           delay: 0.8,
         }}
-        className=" text-AAsecondary"
+        className="text-AAsecondary"
       >
         <Link
           onClick={() => setIsOpen(false)}
@@ -37,8 +37,8 @@ export default function Menu({ isOpen, setIsOpen }) {
           offset={-100}
           duration={200}
         >
-          &gt;{" "}
-          <span className="text-white duration-300 hover:cursor-pointer hover:text-AAsecondary">
+          {isOpen ? "" : ">"}
+          <span className="px-2 py-4 text-white duration-300 hover:cursor-pointer hover:text-AAsecondary">
             About
           </span>
         </Link>
@@ -67,8 +67,8 @@ export default function Menu({ isOpen, setIsOpen }) {
           offset={-100}
           duration={200}
         >
-          &gt;{" "}
-          <span className="text-white duration-300 hover:cursor-pointer hover:text-AAsecondary">
+          {isOpen ? "" : ">"}
+          <span className="px-2 py-4 text-white duration-300 hover:cursor-pointer hover:text-AAsecondary">
             Contact
           </span>
         </Link>

@@ -2,7 +2,6 @@
 
 import Header from "../components/Header/Header";
 import MyName from "../components/Home/MyName/MyName";
-import { useContext, useEffect, useState, useRef } from "react";
 import SocialMediaLinks from "../components/Home/SocialMediaLinks/SocialMediaLinks";
 import AboutMe from "../components/Home/AboutMe/AboutMe";
 import GetInTouch from "../components/Home/GetInTouch/GetInTouch";
@@ -15,8 +14,8 @@ export default function Home() {
     <>
       {
         //Main website flex div
-        <div className="flex flex-col bg-AAprimary">
-          {/*Set the header and name section to take up exactly the screen view*/}
+        <div className="flex h-full w-full flex-col bg-AAprimary">
+          {/*Put the header and name section in a div that takes up exactly the screen view*/}
           <div className="h-screen">
             <Header show={true} />
             <MyName />
