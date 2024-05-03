@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-scroll"
 
-export default function Menu({ isOpen }) {
+export default function Menu({ isOpen, setIsOpen }) {
   return (
     <div className={`${isOpen ? 
       `absolute top-full right-3 bg-AApopup p-5 rounded-lg shadow-lg flex flex-col items-left space-y-4` :
@@ -22,9 +22,8 @@ export default function Menu({ isOpen }) {
           delay: .8,
         }}
         className=" text-AAsecondary"
-
       >
-        <Link to="aboutSection" spy={true} smooth={true} offset={-100} duration={200}>
+        <Link onClick={()=> setIsOpen(!isOpen)} to="aboutSection" spy={true} smooth={true} offset={-100} duration={200}>
           &gt; <span className="text-white hover:cursor-pointer hover:text-AAsecondary duration-300">About</span>
         </Link>
       </motion.div>
@@ -44,11 +43,11 @@ export default function Menu({ isOpen }) {
         }}
         className="text-AAsecondary"
       >
-        <Link to="GetInTouchSection" spy={true} smooth={true} offset={-100} duration={200}>
+        <Link onClick={()=> setIsOpen(!isOpen)} to="GetInTouchSection" spy={true} smooth={true} offset={-100} duration={200}>
           &gt; <span className="text-white  hover:cursor-pointer hover:text-AAsecondary duration-300">Contact</span>
         </Link>
       </motion.span>
-      <a href={"/resume.pdf"} target={"_blank"} rel="noreferrer">
+      <a onClick={()=> setIsOpen(!isOpen)} href={"/resume.pdf"} target={"_blank"} rel="noreferrer">
         <motion.button
           initial={{
             y: -40,

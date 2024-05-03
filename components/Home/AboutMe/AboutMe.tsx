@@ -7,7 +7,7 @@ export default function AboutMe(props) {
     ["Microsoft Access", "statsmodels", "Excel", "Typescript", "Next.js"],
   ];
   return (
-    <div id="aboutSection" data-aos="fade-up" className="snap-start flex flex-col  items-center py-20 bg-AAprimary">
+    <div id="aboutSection" data-aos="fade-up" className="snap-start flex flex-col  items-center bg-AAprimary">
       {/* // ? 0.1 About Me */}
       <div
         className="flex flex-col space-y-8 px-4 sm:px-0 w-full sm:w-[500px] 
