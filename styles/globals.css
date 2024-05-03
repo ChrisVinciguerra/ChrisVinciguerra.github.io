@@ -4,7 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer utilities {
   body::-webkit-scrollbar {
     width: 0.4em;

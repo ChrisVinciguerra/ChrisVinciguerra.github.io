@@ -5,7 +5,7 @@ import LinkedinIcon from "../../Icons/LinkedinIcon";
 import InstagramIcon from "../../Icons/InstagramIcon";
 import YoutubeIcon from "../../Icons/YoutubeIcon";
 
-const IconClickableWithAnimation = props => {
+const IconClickableWithAnimation = (props) => {
   return (
     <motion.div
       whileHover={{
@@ -15,7 +15,11 @@ const IconClickableWithAnimation = props => {
       className=""
     >
       <a href={props.href} className="" target={"_blank"} rel="noreferrer">
-        <props.Icon className={"w-6 h-6 text-gray-400 hover:text-AAsecondary fill-current hover:cursor-pointer"} />
+        <props.Icon
+          className={
+            "h-6 w-6 fill-current text-gray-400 hover:cursor-pointer hover:text-AAsecondary"
+          }
+        />
       </a>
     </motion.div>
   );
@@ -27,15 +31,21 @@ export default function SocialMediaLinks(props: {}) {
         <motion.div
           initial={{ y: "100%" }}
           animate={{ y: "0%" }}
-          transition={{ y: { delay: 4, duration: .8 } }}
-          className="fixed bottom-0 left-0 h-screen lg:flex flex-row px-12 items-center justify-between"
+          transition={{ y: { delay: 4, duration: 0.8 } }}
+          className="fixed bottom-0 left-0 h-screen flex-row items-center justify-between px-12 lg:flex"
         >
-          <div className="flex flex-col space-y-8 justify-end items-center h-full">
-            <div className="flex flex-col justify-center items-center space-y-5">
+          <div className="flex h-full flex-col items-center justify-end space-y-8">
+            <div className="flex flex-col items-center justify-center space-y-5">
               {/* Linkedin icon */}
-              <IconClickableWithAnimation Icon={LinkedinIcon} href={"https://www.linkedin.com/in/chris-vinciguerra/"} />
+              <IconClickableWithAnimation
+                Icon={LinkedinIcon}
+                href={"https://www.linkedin.com/in/chris-vinciguerra/"}
+              />
               {/* Github Icon */}
-              <IconClickableWithAnimation Icon={GithubIcon} href={"https://github.com/ChrisVinciguerra"} />
+              <IconClickableWithAnimation
+                Icon={GithubIcon}
+                href={"https://github.com/ChrisVinciguerra"}
+              />
               {/* Instagram Icon */}
               {/* <IconClickableWithAnimation Icon={InstagramIcon} href={"https://www.instagram.com/xredme/"} /> */}
               {/* Youtube Icon */}
@@ -49,11 +59,11 @@ export default function SocialMediaLinks(props: {}) {
         <motion.div
           initial={{ y: "100%" }}
           animate={{ y: "0%" }}
-          transition={{ y: { delay: 4, duration: .8 } }}
-          className="fixed bottom-0 right-0 h-screen lg:flex flex-row px-12 items-center justify-between"
+          transition={{ y: { delay: 4, duration: 0.8 } }}
+          className="fixed bottom-0 right-0 h-screen flex-row items-center justify-between px-12 lg:flex"
         >
-          <div className="flex flex-col space-y-8 justify-end items-center h-full">
-            <div className="flex flex-col justify-center items-center space-y-5">
+          <div className="flex h-full flex-col items-center justify-end space-y-8">
+            <div className="flex flex-col items-center justify-center space-y-5">
               {/* Open Email on click */}
               <motion.div
                 initial={{ rotate: 90 }}
@@ -63,9 +73,14 @@ export default function SocialMediaLinks(props: {}) {
                 }}
                 className=""
               >
-                <a href="mailto:chris@chrisv.us" target={"_blank"} rel="noreferrer">
-                  <span className=" font-Header tracking-wider text-gray-400 hover:text-AAsecondary hover:cursor-pointer">
-                    chris<span className="text-AAsecondary">@</span>chrisv<span className="text-AAsecondary">.</span>us
+                <a
+                  href="mailto:chris@chrisv.us"
+                  target={"_blank"}
+                  rel="noreferrer"
+                >
+                  <span className=" font-Header tracking-wider text-gray-400 hover:cursor-pointer hover:text-AAsecondary">
+                    chris<span className="text-AAsecondary">@</span>chrisv
+                    <span className="text-AAsecondary">.</span>us
                   </span>
                 </a>
               </motion.div>

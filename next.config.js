@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-
   basePath: "",
   /**
    * Enable static exports for the App Router.

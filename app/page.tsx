@@ -7,26 +7,27 @@ import SocialMediaLinks from "../components/Home/SocialMediaLinks/SocialMediaLin
 import AboutMe from "../components/Home/AboutMe/AboutMe";
 import GetInTouch from "../components/Home/GetInTouch/GetInTouch";
 import Footer from "../components/Footer/Footer";
-import Aos from "aos";
 
 export default function Home() {
-
-  useEffect(() => {
-    Aos.init({ duration: 2000, once: true });
-  }, []);
-
   console.log("website is rendering...");
 
   return (
     <>
       {
-        <div className="relative snap-y min-h-full bg-AAprimary w-full">
-          <Header show={true} />
-          <MyName />
+        //Main website flex div
+        <div className="flex flex-col bg-AAprimary">
+          {/*Set the header and name section to take up exactly the screen view*/}
+          <div className="h-screen">
+            <Header show={true} />
+            <MyName />
+          </div>
           {/* <SocialMediaLinks /> */}
           <AboutMe />
           <GetInTouch />
-          <Footer githubUrl={"https://github.com/hktitof/my-website"} hideSocialsInDesktop={true} />
+          <Footer
+            githubUrl={"https://github.com/hktitof/my-website"}
+            hideSocialsInDesktop={true}
+          />
         </div>
       }
     </>

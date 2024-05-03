@@ -1,12 +1,18 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-scroll"
+import { Link } from "react-scroll";
 
 export default function Menu({ isOpen, setIsOpen }) {
   return (
-    <div className={`${isOpen ? 
-      `absolute top-full right-3 bg-AApopup p-5 rounded-lg shadow-lg flex flex-col items-left space-y-4` :
-      `hidden md:flex md:items-center md:space-x-8`}`}>
+    <div
+      className={`${
+        isOpen
+          ? // Mobile menu styles
+            `items-left absolute right-3 top-full mt-4 flex flex-col space-y-4 rounded-lg bg-AApopup p-5 shadow-md`
+          : // Nav bar styles
+            `hidden md:flex md:items-center md:space-x-8`
+      }`}
+    >
       <motion.div
         initial={{
           y: -40,
@@ -19,12 +25,22 @@ export default function Menu({ isOpen, setIsOpen }) {
         transition={{
           type: "spring",
           duration: 1.2,
-          delay: .8,
+          delay: 0.8,
         }}
         className=" text-AAsecondary"
       >
-        <Link onClick={()=> setIsOpen(!isOpen)} to="aboutSection" spy={true} smooth={true} offset={-100} duration={200}>
-          &gt; <span className="text-white hover:cursor-pointer hover:text-AAsecondary duration-300">About</span>
+        <Link
+          onClick={() => setIsOpen(false)}
+          to="aboutSection"
+          spy={true}
+          smooth={true}
+          offset={-100}
+          duration={200}
+        >
+          &gt;{" "}
+          <span className="text-white duration-300 hover:cursor-pointer hover:text-AAsecondary">
+            About
+          </span>
         </Link>
       </motion.div>
       <motion.span
@@ -39,15 +55,30 @@ export default function Menu({ isOpen, setIsOpen }) {
         transition={{
           type: "spring",
           duration: 1.2,
-          delay: .9,
+          delay: 0.9,
         }}
         className="text-AAsecondary"
       >
-        <Link onClick={()=> setIsOpen(!isOpen)} to="GetInTouchSection" spy={true} smooth={true} offset={-100} duration={200}>
-          &gt; <span className="text-white  hover:cursor-pointer hover:text-AAsecondary duration-300">Contact</span>
+        <Link
+          onClick={() => setIsOpen(false)}
+          to="GetInTouchSection"
+          spy={true}
+          smooth={true}
+          offset={-100}
+          duration={200}
+        >
+          &gt;{" "}
+          <span className="text-white duration-300 hover:cursor-pointer hover:text-AAsecondary">
+            Contact
+          </span>
         </Link>
       </motion.span>
-      <a onClick={()=> setIsOpen(!isOpen)} href={"/resume.pdf"} target={"_blank"} rel="noreferrer">
+      <a
+        onClick={() => setIsOpen(false)}
+        href={"/resume.pdf"}
+        target={"_blank"}
+        rel="noreferrer"
+      >
         <motion.button
           initial={{
             y: -40,
@@ -63,12 +94,11 @@ export default function Menu({ isOpen, setIsOpen }) {
             delay: 1.0,
           }}
           // onClick={()=>{router.push("/resume.pdf")}}
-          className="text-AAsecondary border border-spacing-2 py-2 px-3 rounded-sm border-AAsecondary duration-300hover:cursor-pointer hover:bg-AAsecondary hover:text-white"
+          className="border-spacing-2 rounded-sm border border-AAsecondary px-3 py-2 text-AAsecondary duration-300 hover:bg-AAsecondary hover:text-white"
         >
           Resume
         </motion.button>
       </a>
-
     </div>
   );
 }
