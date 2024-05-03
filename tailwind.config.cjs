@@ -20,6 +20,12 @@ module.exports = {
         Syracuse: "#f76900",
         ButtonHover: "#139ae8",
       },
+      keyframes: {
+        fadeIn: {
+          "0%": { opacity: 0 },
+          "100%": { opacity: 1 },
+        },
+      },
     },
   },
   plugins: [require("tailwind-scrollbar"), require("tailwind-scrollbar-hide")],

@@ -1,23 +1,6 @@
-import { motion } from "framer-motion";
-
 const Hamburger = ({ isOpen, setIsOpen }) => {
   return (
-    <motion.div
-      initial={{
-        y: -40,
-        opacity: 0,
-      }}
-      animate={{
-        y: 0,
-        opacity: 1,
-      }}
-      transition={{
-        type: "spring",
-        duration: 1.2,
-        delay: 0.8,
-      }}
-    >
-      {/* Mobile only hamburger button */}
+    <>
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={`group flex flex-col rounded-md ${isOpen ? `hidden` : `md:hidden`} space-y-2 px-2 py-2`}
@@ -44,7 +27,7 @@ const Hamburger = ({ isOpen, setIsOpen }) => {
           <line x1="6" y1="6" x2="18" y2="18" />
         </svg>
       </button>
-    </motion.div>
+    </>
   );
 };
 
