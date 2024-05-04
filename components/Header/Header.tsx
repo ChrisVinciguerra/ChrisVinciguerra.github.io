@@ -12,7 +12,7 @@ const Header = ({ show }) => {
         Fade in the header itself 
       */}
       <div
-        className={`${show ? `shadow-md` : `bg-opacity-0 `} absolute flex h-14 w-full animate-[fadeIn_1200ms_ease-in-out_forwards] items-center justify-between bg-AApopup px-10 opacity-0`}
+        className={`${show ? `shadow-md` : `bg-opacity-0 `} absolute flex h-14 w-full animate-fadeIn items-center justify-between bg-AApopup px-10 delay-1000`}
       >
         <Logo />
         {/*On mobile, the hamburger or close button to the right*/}
