@@ -35,14 +35,16 @@ module.exports = {
           "100%": { transform: "translateY(0)" },
         },
         slideUp: {
-          "0%": { transform: "translateY(50%)" },
+          "0%": { transform: "translateY(20%)" },
           "100%": { transform: "translateY(0)" },
         },
       },
       animation: {
         fadeIn: "fadeIn .8s ease-in-out both",
-        fadeSlideDown: "fadeIn .2s ease-in-out both, slideDown .2s ease-out",
-        fadeSlideUp: "fadeIn .2s ease-in-out both, slideUp .2s ease-out",
+        fadeSlideDown:
+          "fadeIn .2s ease-in-out backwards, slideDown .2s ease-out",
+        fadeSlideUp:
+          "fadeIn .2s ease-in-out backwards, slideUp .2s ease-out backwards",
       },
     },
   },

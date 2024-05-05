@@ -14,9 +14,9 @@ export default function Home() {
     <>
       {
         //Main website flex div
-        <div className="flex min-h-screen w-screen flex-col bg-AAprimary">
+        <div className="flex w-screen flex-col bg-AAprimary">
           {/*Put the header and name section in a div that takes up exactly the screen view*/}
-          <div className="h-screen">
+          <div className="h-dvh">
             <Header show={true} />
             <MyName />
           </div>
