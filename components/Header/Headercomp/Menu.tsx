@@ -4,7 +4,7 @@ import { Link } from "react-scroll";
 export default function Menu({ isOpen, setIsOpen }) {
   return (
     <div
-      className={`text-AAsecondary  ${
+      className={`text-AAsecondary font-body ${
         isOpen
           ? // Mobile menu styles
             `absolute left-0 top-full flex w-full flex-col items-center justify-between space-y-8 bg-AAteriary py-8 text-2xl shadow-md`

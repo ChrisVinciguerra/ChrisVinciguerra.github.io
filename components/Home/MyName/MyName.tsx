@@ -2,8 +2,8 @@ import React from "react";
 export default function MyName(props) {
   return (
     <div
-      className={`flex flex-col 
-      px-8 py-24 sm:px-16 sm:pt-24 md:h-dvh md:px-28 md:pt-32 lg:px-32 lg:pt-40 xl:px-56 xl:pt-56 2xl:px-72`}
+      className={`flex h-dvh 
+      flex-col px-8 py-24 sm:px-16 sm:pt-24 md:px-28 md:pt-32 lg:px-32 lg:pt-40 xl:px-56 xl:pt-56 2xl:px-72`}
     >
       <span className="animate-fadeSlideUp font-mono text-AAsecondary opacity-100 animation-delay-[.5s]">
         Hi, my name is
