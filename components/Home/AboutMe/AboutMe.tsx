@@ -19,7 +19,7 @@ export default function AboutMe(props) {
           <div className="ml-6 h-[2px] flex-grow bg-gray-400"></div>
         </div>
         {/* Paragraph block*/}
-        <div className="max-w-screen-md space-y-8 font-body text-sm sm:text-base md:text-lg lg:text-xl">
+        <div className="max-w-screen-md space-y-8 font-body text-sm sm:text-base md:text-lg">
           <div className="font-body text-gray-400">
             Hello! My name is Chris. I am a dual degree Computer Science B.S.
             and MBA student at Syracuse University, with a passion for{" "}
@@ -41,10 +41,10 @@ export default function AboutMe(props) {
             {technologies.map((techs, index) => {
               // Each column is a flex column with the icon text to the technology
               return (
-                <div className="flex flex-col space-y-4">
-                  {techs.map((tech, index) => {
+                <div className="flex flex-col space-y-4" key={index}>
+                  {techs.map((tech, index2) => {
                     return (
-                      <div key={index} className="flex flex-row items-center">
+                      <div key={index2} className="flex flex-row items-center">
                         <ArrowIcon className={"h-5 w-5 text-AAsecondary"} />
                         <span className=" text-gray-400">{tech}</span>
                       </div>
