@@ -2,8 +2,8 @@ import React from "react";
 export default function MyName(props) {
   return (
     <div
-      className={`flex flex-col
-      px-8 pt-24 sm:px-16 sm:pt-24 md:px-28 md:pt-32 lg:px-32 lg:pt-40 xl:px-56 2xl:px-72`}
+      className={`flex flex-col 
+      px-8 py-24 sm:px-16 sm:pt-24 md:h-dvh md:px-28 md:pt-32 lg:px-32 lg:pt-40 xl:px-56 xl:pt-56 2xl:px-72`}
     >
       <span className="animate-fadeSlideUp font-mono text-AAsecondary opacity-100 animation-delay-[.5s]">
         Hi, my name is
@@ -20,12 +20,17 @@ export default function MyName(props) {
         I&apos;m currently preparing for a summer internship in the{" "}
         <span className="text-AAsecondary">Computer Systems Validation</span>{" "}
         department at{" "}
-        <span className="text-AAsecondary">Regeneron Pharmaceuticals</span>
+        <a
+          className="text-AAsecondary hover:underline"
+          href="https://www.regeneron.com/"
+        >
+          Regeneron Pharmaceuticals
+        </a>
       </h3>
       <div className="mt-12 flex animate-fadeSlideUp space-x-10 text-sm animation-delay-[2.55s]">
         <a href={"/resume.pdf"} target={"_blank"} rel="noreferrer">
           <button className="rounded border border-AAsecondary bg-AAprimary px-4 py-3 font-mono text-AAsecondary duration-300 hover:bg-ButtonHover hover:text-black sm:px-8 sm:py-4">
-            Check out my resume!
+            Check out my résumé!
           </button>
         </a>
         <a
