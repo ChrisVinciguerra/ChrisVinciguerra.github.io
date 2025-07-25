@@ -10,14 +10,28 @@
       },
       "problemMatcher": [],
       "label": "npm: build",
-      "detail": "next build"
+      "detail": "vite build"
     },
     {
       "type": "npm",
       "script": "dev",
       "problemMatcher": [],
       "label": "npm: dev",
-      "detail": "next dev"
+      "detail": "vite dev"
+    },
+    {
+      "type": "npm",
+      "script": "preview",
+      "problemMatcher": [],
+      "label": "npm: preview",
+      "detail": "vite preview"
+    },
+    {
+      "type": "npm",
+      "script": "lint",
+      "problemMatcher": [],
+      "label": "npm: lint",
+      "detail": "eslint ."
     }
   ]
 }
