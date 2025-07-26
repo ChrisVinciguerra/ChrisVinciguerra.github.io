@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Download } from 'lucide-react';
 import { personalInfo } from '../data/portfolio';
+import { animations } from '../utils/animations';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -39,8 +40,7 @@ const Header: React.FC = () => {
 
   return (
     <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
+      {...animations.headerSlideDown}
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         isScrolled 
           ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200' 
@@ -52,8 +52,7 @@ const Header: React.FC = () => {
           {/* Logo */}
           <motion.div 
             className="flex-shrink-0"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            {...animations.buttonHover}
           >
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -94,8 +93,7 @@ const Header: React.FC = () => {
                   ? 'bg-gradient-to-r from-blue-600 to-blue-600 text-white hover:from-blue-700 hover:to-blue-700 shadow-lg'
                   : 'glass-effect text-white hover:bg-white/20'
               }`}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              {...animations.buttonHover}
             >
               <Download className="w-4 h-4 mr-2" />
               Resume
@@ -109,8 +107,7 @@ const Header: React.FC = () => {
               className={`p-2 rounded-md transition-all duration-300 ${
                 isScrolled ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-blue-300'
               }`}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+              {...animations.buttonHover}
             >
               <AnimatePresence mode="wait">
                 {isMenuOpen ? (
@@ -144,10 +141,7 @@ const Header: React.FC = () => {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
+            {...animations.mobileMenu}
             className={`md:hidden overflow-hidden ${
               isScrolled ? 'bg-white/95 backdrop-blur-md border-t border-gray-200' : 'bg-black/20 backdrop-blur-md'
             }`}

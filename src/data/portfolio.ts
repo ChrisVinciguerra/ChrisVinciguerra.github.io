@@ -119,7 +119,7 @@ export const experience: Experience[] = [
     company: 'xAI',
     position: 'Software Engineering Specialist, Human Data',
     location: 'Remote',
-    period: 'December 2024 - January 2025',
+    period: 'September 2024 - January 2025',
     description: 'Collaborated closely with AI engineers to experiment with various methods for generating unique programming problems.',
     highlights: [
       'Collaborated closely with AI engineers to experiment with various methods for generating unique programming problems using Python scripts',

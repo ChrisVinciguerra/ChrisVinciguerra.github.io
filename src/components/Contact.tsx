@@ -3,12 +3,10 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Mail, Phone, MapPin, ExternalLink } from 'lucide-react';
 import { personalInfo } from '../data/portfolio';
+import { animations, useInViewConfig } from '../utils/animations';
 
 const Contact: React.FC = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+  const [ref, inView] = useInView(useInViewConfig);
 
   const contactInfo = [
     {
@@ -54,9 +52,9 @@ const Contact: React.FC = () => {
       <div className="container-max">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          initial={animations.fadeInUp.initial}
+          animate={inView ? animations.fadeInUp.animate : animations.fadeInUp.initial}
+          transition={animations.fadeInUp.transition}
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Get In Touch</h2>
@@ -71,18 +69,21 @@ const Contact: React.FC = () => {
         <div className="grid md:grid-cols-2 gap-12">
           {/* Contact Information */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            initial={animations.slideInLeft.initial}
+            animate={inView ? animations.slideInLeft.animate : animations.slideInLeft.initial}
+            transition={{ ...animations.slideInLeft.transition, delay: 0.2 }}
           >
             <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
             <div className="space-y-4">
               {contactInfo.map((info, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+                  initial={animations.staggerFadeIn.initial}
+                  animate={inView ? animations.staggerFadeIn.animate : animations.staggerFadeIn.initial}
+                  transition={{ 
+                    ...animations.staggerFadeIn.transition, 
+                    delay: animations.getStaggerDelay(index, 0.3)
+                  }}
                   className="flex items-center space-x-4"
                 >
                   <div className="flex-shrink-0 w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center">
@@ -110,9 +111,9 @@ const Contact: React.FC = () => {
 
           {/* Social Links */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            initial={animations.slideInRight.initial}
+            animate={inView ? animations.slideInRight.animate : animations.slideInRight.initial}
+            transition={{ ...animations.slideInRight.transition, delay: 0.4 }}
           >
             <h3 className="text-2xl font-bold mb-6">Connect With Me</h3>
             <div className="space-y-4">
@@ -122,10 +123,14 @@ const Contact: React.FC = () => {
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
+                  initial={animations.staggerFadeIn.initial}
+                  animate={inView ? animations.staggerFadeIn.animate : animations.staggerFadeIn.initial}
+                  transition={{ 
+                    ...animations.staggerFadeIn.transition, 
+                    delay: animations.getStaggerDelay(index, 0.5)
+                  }}
                   className="flex items-center space-x-4 p-4 bg-slate-800 rounded-lg hover:bg-slate-700 transition-colors"
+                  {...animations.cardHover}
                 >
                   <div className="flex-shrink-0">
                     <social.icon className="w-6 h-6" />
@@ -138,9 +143,9 @@ const Contact: React.FC = () => {
         </div>
 
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.8 }}
+          initial={animations.fadeInUp.initial}
+          animate={inView ? animations.fadeInUp.animate : animations.fadeInUp.initial}
+          transition={{ ...animations.fadeInUp.transition, delay: 0.8 }}
           className="mt-16 text-center"
         >
           <p className="text-gray-400">

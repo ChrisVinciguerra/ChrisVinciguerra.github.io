@@ -2,12 +2,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { education, skills, personalInfo } from '../data/portfolio';
+import { animations, useInViewConfig } from '../utils/animations';
 
 const About: React.FC = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+  const [ref, inView] = useInView(useInViewConfig);
 
   const skillCategories = skills.reduce((acc, skill) => {
     if (!acc[skill.category]) {
@@ -29,19 +27,19 @@ const About: React.FC = () => {
   };
 
   return (
-    <section id="about" className="section-padding bg-gray-50 dark:bg-dark-800 overflow-hidden">
+    <section id="about" className="section-padding bg-slate-900 dark:bg-slate-900 overflow-hidden">
       <div className="container-max">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          initial={animations.fadeInUp.initial}
+          animate={inView ? animations.fadeInUp.animate : animations.fadeInUp.initial}
+          transition={animations.fadeInUp.transition}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             About Me
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             {personalInfo.about}
           </p>
         </motion.div>
@@ -49,26 +47,30 @@ const About: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Education */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            initial={animations.slideInLeft.initial}
+            animate={inView ? animations.slideInLeft.animate : animations.slideInLeft.initial}
+            transition={{ ...animations.slideInLeft.transition, delay: 0.2 }}
           >
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">Education</h3>
+            <h3 className="text-2xl font-bold text-white mb-8">Education</h3>
             <div className="space-y-6">
               {education.map((edu, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                  className="bg-white dark:bg-dark-700 rounded-lg p-6 shadow-lg border border-gray-200 dark:border-dark-600 hover:shadow-xl transition-shadow duration-300"
+                  initial={animations.staggerFadeIn.initial}
+                  animate={inView ? animations.staggerFadeIn.animate : animations.staggerFadeIn.initial}
+                  transition={{ 
+                    ...animations.staggerFadeIn.transition, 
+                    delay: animations.getStaggerDelay(index, 0.3)
+                  }}
+                  className="bg-slate-800 dark:bg-slate-800 rounded-lg p-6 shadow-lg border border-slate-700 dark:border-slate-700 hover:border-slate-600 transition-colors duration-300"
+                  {...animations.cardHover}
                 >
-                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                  <h4 className="text-lg font-semibold text-white mb-2">
                     {edu.degree}
                   </h4>
-                  <p className="text-gray-600 dark:text-gray-300 mb-2">{edu.school}</p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">{edu.period}</p>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">
+                  <p className="text-gray-300 mb-2">{edu.school}</p>
+                  <p className="text-sm text-gray-400 mb-2">{edu.period}</p>
+                  <p className="text-sm text-gray-300">
                     GPA: {edu.gpa}
                     {edu.concentration && ` • ${edu.concentration}`}
                   </p>
@@ -79,19 +81,23 @@ const About: React.FC = () => {
 
           {/* Skills */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            initial={animations.slideInRight.initial}
+            animate={inView ? animations.slideInRight.animate : animations.slideInRight.initial}
+            transition={{ ...animations.slideInRight.transition, delay: 0.4 }}
           >
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">Technical Skills</h3>
+            <h3 className="text-2xl font-bold text-white mb-8">Technical Skills</h3>
             <div className="space-y-6">
               {Object.entries(skillCategories).map(([category, categorySkills], categoryIndex) => (
                 <motion.div
                   key={category}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 0.5 + categoryIndex * 0.1 }}
-                  className="bg-white dark:bg-dark-700 rounded-lg p-6 shadow-lg border border-gray-200 dark:border-dark-600 hover:shadow-xl transition-shadow duration-300"
+                  initial={animations.staggerFadeIn.initial}
+                  animate={inView ? animations.staggerFadeIn.animate : animations.staggerFadeIn.initial}
+                  transition={{ 
+                    ...animations.staggerFadeIn.transition, 
+                    delay: animations.getStaggerDelay(categoryIndex, 0.5)
+                  }}
+                  className="bg-slate-800 dark:bg-slate-800 rounded-lg p-6 shadow-lg border border-slate-700 dark:border-slate-700 hover:border-slate-600 transition-colors duration-300"
+                  {...animations.cardHover}
                 >
                   <div className={`inline-block bg-gradient-to-r ${getCategoryColor(category)} text-white px-4 py-2 rounded-full text-sm font-semibold mb-4`}>
                     {category}
@@ -102,10 +108,10 @@ const About: React.FC = () => {
                         key={skillIndex}
                         className={`px-3 py-1 rounded-full text-sm font-medium ${
                           skill.level === 'expert'
-                            ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
+                            ? 'bg-green-900 text-green-200 border border-green-700'
                             : skill.level === 'advanced'
-                            ? 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200'
-                            : 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200'
+                            ? 'bg-blue-900 text-blue-200 border border-blue-700'
+                            : 'bg-slate-700 text-gray-200 border border-slate-600'
                         }`}
                       >
                         {skill.name}

@@ -2,59 +2,68 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { projects, leadership } from '../data/portfolio';
+import { animations, useInViewConfig } from '../utils/animations';
 
 const Projects: React.FC = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+  const [ref, inView] = useInView(useInViewConfig);
 
   return (
-    <section id="projects" className="section-padding bg-gray-50 dark:bg-dark-800">
+    <section id="projects" className="section-padding bg-slate-900 dark:bg-slate-900">
       <div className="container-max">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          initial={animations.fadeInUp.initial}
+          animate={inView ? animations.fadeInUp.animate : animations.fadeInUp.initial}
+          transition={animations.fadeInUp.transition}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Projects & Leadership
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             From founding startups to leading university clubs, I've consistently demonstrated the ability to bring innovative ideas to life.
           </p>
         </motion.div>
 
         {/* Projects */}
         <div className="mb-16">
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">Featured Projects</h3>
+          <motion.h3 
+            initial={animations.fadeInUp.initial}
+            animate={inView ? animations.fadeInUp.animate : animations.fadeInUp.initial}
+            transition={{ ...animations.fadeInUp.transition, delay: 0.1 }}
+            className="text-2xl font-bold text-white mb-8"
+          >
+            Featured Projects
+          </motion.h3>
           <div className="grid md:grid-cols-2 gap-8">
             {projects.map((project, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white dark:bg-dark-700 rounded-lg p-8 shadow-lg border border-gray-200 dark:border-dark-600"
+                initial={animations.staggerFadeIn.initial}
+                animate={inView ? animations.staggerFadeIn.animate : animations.staggerFadeIn.initial}
+                transition={{ 
+                  ...animations.staggerFadeIn.transition, 
+                  delay: animations.getStaggerDelay(index, 0.2)
+                }}
+                className="bg-slate-800 dark:bg-slate-800 rounded-lg p-8 shadow-lg border border-slate-700 dark:border-slate-700 hover:border-slate-600 transition-colors duration-300"
+                {...animations.cardHover}
               >
                 <div className="mb-4">
-                  <h4 className="text-xl font-bold text-gray-900 dark:text-white">{project.title}</h4>
-                  <p className="text-gray-600 dark:text-gray-300">{project.role} • {project.period}</p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">{project.location}</p>
+                  <h4 className="text-xl font-bold text-white">{project.title}</h4>
+                  <p className="text-gray-300">{project.role} • {project.period}</p>
+                  <p className="text-sm text-gray-400">{project.location}</p>
                 </div>
-                <p className="text-gray-700 dark:text-gray-300 mb-4">{project.description}</p>
+                <p className="text-gray-300 mb-4">{project.description}</p>
                 <ul className="space-y-2 mb-6">
                   {project.highlights.map((highlight, highlightIndex) => (
-                    <li key={highlightIndex} className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                    <li key={highlightIndex} className="text-gray-300 text-sm leading-relaxed">
                       • {highlight}
                     </li>
                   ))}
                 </ul>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech) => (
-                    <span key={tech} className="px-3 py-1 bg-gray-200 dark:bg-dark-600 text-gray-700 dark:text-gray-300 rounded-full text-xs">
+                    <span key={tech} className="px-3 py-1 bg-slate-700 dark:bg-slate-700 text-gray-300 rounded-full text-xs border border-slate-600">
                       {tech}
                     </span>
                   ))}
@@ -66,21 +75,32 @@ const Projects: React.FC = () => {
 
         {/* Leadership */}
         <div>
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">Leadership Experience</h3>
+          <motion.h3 
+            initial={animations.fadeInUp.initial}
+            animate={inView ? animations.fadeInUp.animate : animations.fadeInUp.initial}
+            transition={{ ...animations.fadeInUp.transition, delay: 0.4 }}
+            className="text-2xl font-bold text-white mb-8"
+          >
+            Leadership Experience
+          </motion.h3>
           <div className="space-y-6">
             {leadership.map((role, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                className="bg-white dark:bg-dark-700 rounded-lg p-6 shadow-lg border border-gray-200 dark:border-dark-600"
+                initial={animations.staggerFadeIn.initial}
+                animate={inView ? animations.staggerFadeIn.animate : animations.staggerFadeIn.initial}
+                transition={{ 
+                  ...animations.staggerFadeIn.transition, 
+                  delay: animations.getStaggerDelay(index, 0.5)
+                }}
+                className="bg-slate-800 dark:bg-slate-800 rounded-lg p-6 shadow-lg border border-slate-700 dark:border-slate-700 hover:border-slate-600 transition-colors duration-300"
+                {...animations.cardHover}
               >
                 <div className="mb-3">
-                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white">{role.title}</h4>
-                  <p className="text-gray-600 dark:text-gray-300">{role.role} • {role.period}</p>
+                  <h4 className="text-lg font-semibold text-white">{role.title}</h4>
+                  <p className="text-gray-300">{role.role} • {role.period}</p>
                 </div>
-                <p className="text-gray-700 dark:text-gray-300">{role.description}</p>
+                <p className="text-gray-300">{role.description}</p>
               </motion.div>
             ))}
           </div>
