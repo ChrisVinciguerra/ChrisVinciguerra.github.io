@@ -46,7 +46,7 @@ export const personalInfo = {
   website: 'https://chrisv.us',
   linkedin: 'https://linkedin.com/in/chris-vinciguerra/',
   github: 'https://github.com/ChrisVinciguerra',
-  resume: '/assets/Chris Vinciguerra Resume 7-25-25.pdf',
+  resume: '/assets/Chris Vinciguerra Resume.pdf',
   about: `I'm a Computer Science graduate and MBA holder with a passion for AI, data science, and building innovative solutions. Recently led teams at xAI as a Human Data Expert Team Lead, I specialize in machine learning, software engineering, and team leadership. Currently seeking new opportunities to make an impact.`,
   intro: `Passionate about building innovative solutions at the intersection of AI, data science, and software engineering. Recently led teams at xAI and now seeking new opportunities to advance artificial intelligence capabilities.`
 };

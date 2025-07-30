@@ -72,7 +72,7 @@ dist/
 └── assets/
     ├── index-[hash].js
     ├── index-[hash].css
-    └── Chris Vinciguerra Resume 7-25-25.pdf
+    └── Chris Vinciguerra Resume.pdf
 ```
 
 This structure will be automatically created by the GitHub Actions workflow. 

@@ -25,7 +25,7 @@ A modern, responsive portfolio website built with React, TypeScript, Vite, and T
 ```
 ├── public/
 │   └── assets/
-│       └── Chris Vinciguerra Resume 7-25-25.pdf
+│       └── Chris Vinciguerra Resume.pdf
 ├── src/
 │   ├── components/          # React components
 │   │   ├── Header.tsx      # Navigation header with animations
