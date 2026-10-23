@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --color-paper: #faf9f6;
+  --color-ink: #1f1d1a;
+  --color-faint: #6e6a63;
+  --color-accent: #35604a;
+  --color-rule: #e6e2da;
+}
+
+html {
+  background-color: var(--color-paper);
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+
+body {
+  color: var(--color-ink);
+  font-feature-settings: "rlig" 1, "calt" 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: var(--color-selection, #dce7df);
+}
+
+/* Lamplight edition: the same page, after dark */
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+
+  :root {
+    --color-paper: #181611;
+    --color-ink: #e8e4db;
+    --color-faint: #9b958a;
+    --color-accent: #93bda3;
+    --color-rule: #35322b;
+    --color-selection: #2e3d33;
+  }
+}
+
+/* Settle the type onto the page, one block at a time */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes settle {
+    from {
+      opacity: 0;
+      transform: translateY(0.5rem);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .settle > * {
+    animation: settle 0.6s ease-out backwards;
+  }
+
+  .settle > *:nth-child(2) { animation-delay: 90ms; }
+  .settle > *:nth-child(3) { animation-delay: 180ms; }
+  .settle > *:nth-child(4) { animation-delay: 270ms; }
+  .settle > *:nth-child(5) { animation-delay: 360ms; }
+  .settle > *:nth-child(6) { animation-delay: 450ms; }
+  .settle > *:nth-child(n + 7) { animation-delay: 540ms; }
+}
+
+/* Print like the résumé it is */
+@media print {
+  :root {
+    --color-paper: #fff;
+    --color-ink: #000;
+    --color-faint: #444;
+    --color-accent: #000;
+    --color-rule: #bbb;
+  }
+
+  .settle > * {
+    animation: none;
+  }
+
+  article {
+    break-inside: avoid;
+  }
+
+  .print-hidden {
+    display: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
