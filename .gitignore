@@ -93,3 +93,7 @@ temp/
 
 # Vite
 .vite/
+
+# Personal Claude notes - never commit
+CLAUDE.md
+CLAUDE.local.md
